@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 
     @RequestMapping("/")
-    public String index() {return "index";}
+    public String index() {
+    return "redirect:bbs/";
+    }
 
     @RequestMapping("/test")
     public String test() {return "test";}

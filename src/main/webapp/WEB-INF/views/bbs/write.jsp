@@ -30,7 +30,7 @@
     <div class="jumbotron">
         <form action="/bbs/write" method="post">
 
-            <div class="input-group input-group-lg">
+            <div class="input-group">
                 <span class="input-group-addon">
                     <i class="glyphicon glyphicon-tags"></i> 글번호
                 </span>

@@ -8,6 +8,7 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <mvc:annotation-driven/>
+    <mvc:resources mapping="/asset/**" location="/client/"/>
 
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
