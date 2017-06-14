@@ -14,7 +14,8 @@ public class MainController {
     return "redirect:bbs/";
     }
 
-    @RequestMapping("/test")
-    public String test() {return "test";}
+    @RequestMapping("/bs-sample")
+    public String test() {
+        return "bs_sample";}
 }
 

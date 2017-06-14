@@ -1,4 +1,4 @@
-package kr.re.kitri.hello.amigoController;
+package kr.re.kitri.hello.controller;
 
 import kr.re.kitri.hello.common.MockAmigo;
 import kr.re.kitri.hello.common.MockArticle;
