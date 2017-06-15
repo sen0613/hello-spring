@@ -13,27 +13,27 @@ public class MockAmigo {
         List<Amigo> list = new ArrayList<>();
 
         Amigo a = new Amigo();
-        a.setAmigoName("허민");
-        a.setCp("1");
-        a.setEmail("1");
+        a.setAmigoName("김진");
+        a.setCp("010-0000-0002");
+        a.setEmail("j@naver.com");
         list.add(a);
 
         a = new Amigo();
-        a.setAmigoName("김세원");
-        a.setCp("2");
-        a.setEmail("2");
+        a.setAmigoName("박철범");
+        a.setCp("010-0000-0003");
+        a.setEmail("c@naver.com");
         list.add(a);
 
         a = new Amigo();
-        a.setAmigoName("김태준");
-        a.setCp("3");
-        a.setEmail("3");
+        a.setAmigoName("서희정");
+        a.setCp("010-0000-0005");
+        a.setEmail("h@naver.com");
         list.add(a);
 
         a = new Amigo();
-        a.setAmigoName("황순성");
-        a.setCp("4");
-        a.setEmail("4");
+        a.setAmigoName("김태중");
+        a.setCp("010-0000-0006");
+        a.setEmail("t@naver.com");
         list.add(a);
 
         return list;

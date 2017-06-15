@@ -9,7 +9,7 @@ import java.util.List;
  * Created by danawacomputer on 2017-06-13.
  */
 public class MockArticle {
-    public List<Article> getAarticles() {
+    public List<Article> getArticles() {
         List<Article> list = new ArrayList<>();
 
         Article a = new Article();

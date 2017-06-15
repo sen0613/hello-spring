@@ -19,12 +19,13 @@
 <h1>전체보기 페이지 입니다.</h1>
 
 <c:forEach var="article" items="${list}">
-<ul>
-    <li>글번호: ${article.articleId}</li>
-    <li>제목: <a href="/bbs/${article.articleId}">${article.title}</a></li>
-    <li>작성자: ${article.author}</li>
-    <li>내용: ${article.content}</li>
-</ul>
+    <ul>
+        <li>글번호: ${article.articleId}</li>
+        <li>제목:
+            <a href="/bbs/${article.articleId}">${article.title}</a>
+            (${article.author})
+        </li>
+    </ul>
 </c:forEach>
 <a href="/bbs/write">글쓰기</a>
 <script src="/asset/js/jquery-3.2.1.js"></script>

@@ -1,9 +1,9 @@
 package kr.re.kitri.hello.dao;
 
+import kr.re.kitri.hello.model.Amigo;
 import kr.re.kitri.hello.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,15 +12,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by danawacomputer on 2017-06-15.
+ */
 @Repository
-public class ArticleDao {
-    /**
-     * 글 입력
-     */
+public class AmigoDao {
+
     @Autowired
     private DataSource dataSource;
 
-    public void insertArticle(Article article) {
+    public void insertAmigo(Amigo amigo) {
 
         try {
             //1. connection 확보
@@ -28,14 +29,14 @@ public class ArticleDao {
 
             //2. 쿼리를 생성 - PreparedStatement 생성
             String query =
-                    "insert into article (article_id, title, author, content)\n" +
-                            "values (?, ?, ?, ?)";
+                    "insert into amigo (amigo_name, cp, email)\n" +
+                            "values (?, ?, ?)";
 
             PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setInt(1, Integer.parseInt(article.getArticleId()));
-            pstmt.setString(2, article.getTitle());
-            pstmt.setString(3, article.getAuthor());
-            pstmt.setString(4, article.getContent());
+            pstmt.setString(1, amigo.getAmigoName());
+            pstmt.setString(2, amigo.getCp());
+            pstmt.setString(3, amigo.getEmail());
+
 
             pstmt.executeUpdate();
 
@@ -44,14 +45,16 @@ public class ArticleDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
     }
 
     /**
      * 글 전체보기
      */
-    public List<Article> selectAllArticles() {
-        String query = "SELECT article_id, title, author, content\n" +
-                "FROM article";
+    public List<Amigo> selectAllAmigos() {
+        String query = "SELECT amigo_name, cp, email\n" +
+                "FROM amigo";
 
         Connection conn = null;
         try {
@@ -60,16 +63,15 @@ public class ArticleDao {
             PreparedStatement pstmt = conn.prepareStatement(query);
             ResultSet rs = pstmt.executeQuery();
 
-            List<Article> list = new ArrayList<>();
-            Article article;
+            List<Amigo> list = new ArrayList<>();
+            Amigo amigo;
             while (rs.next()) {
-                article = new Article();
-                article.setArticleId(rs.getString(1));
-                article.setTitle(rs.getString(2));
-                article.setAuthor(rs.getString(3));
-                article.setContent(rs.getString(4));
+                amigo = new Amigo();
+                amigo.setAmigoName(rs.getString(1));
+                amigo.setCp(rs.getString(2));
+                amigo.setEmail(rs.getString(3));
 
-                list.add(article);
+                list.add(amigo);
             }
             conn.close();
             return list;
@@ -82,36 +84,40 @@ public class ArticleDao {
     /**
      * 글 상세보기
      *
-     * @param articleId 글번호
+     * @param amigoName 친구이름
      */
-    public Article selectArticleById(String articleId) {
+    public Amigo selectAmigoByName(String amigoName) {
         String query =
-                "SELECT article_id, title, author, content\n" +
-                        "FROM article\n" +
-                        "WHERE article_id = ?";
+                "SELECT amigo_name, cp, email\n" +
+                        "FROM amigo\n" +
+                        "WHERE amigo_name = ?";
 
         try {
             Connection conn = dataSource.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setInt(1, Integer.parseInt(articleId));
+            pstmt.setString(1,amigoName);
             ResultSet rs = pstmt.executeQuery();
             rs.next();
 
-            Article article = new Article();
-            article.setArticleId(rs.getString(1));
-            article.setTitle(rs.getString(2));
-            article.setAuthor(rs.getString(3));
-            article.setContent(rs.getString(4));
+            Amigo amigo = new Amigo();
+            amigo.setAmigoName(rs.getString(1));
+            amigo.setCp(rs.getString(2));
+            amigo.setEmail(rs.getString(3));
+
 
             conn.close();
-            return article;
+            return amigo;
 
         } catch (SQLException e) {
             e.printStackTrace();
 
-            return new Article();
+            return new Amigo();
         }
     }
 }
+
+
+
+
 
 

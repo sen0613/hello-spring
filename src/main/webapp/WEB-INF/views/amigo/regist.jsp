@@ -25,10 +25,10 @@
         </nav>
         <h3 class="text-muted">친구 등록</h3>
     </div>
+    <br>
 
     <div class="jumbotron">
         <form action="/amigo/regist" method="post">
-
             <div class="input-group">
                 <span class="input-group-addon">
                     <i class="glyphicon glyphicon-user"></i> 친구 이름
