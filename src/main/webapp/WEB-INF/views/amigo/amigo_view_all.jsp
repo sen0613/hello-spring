@@ -20,7 +20,7 @@
 
 <c:forEach var="amigo" items="${list}">
     <ul>
-        <li>친구 이름:<a href="/amigo/${amigo.amigoName}">${amigo.amigoName}</a>
+        <li>친구 이름:${amigo.amigoId}<a href="/amigo/${amigo.amigoName}">${amigo.amigoName}</a>
             (${amigo.cp})</li>
     </ul>
 </c:forEach>

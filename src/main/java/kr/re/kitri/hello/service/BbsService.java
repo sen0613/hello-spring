@@ -1,11 +1,11 @@
 package kr.re.kitri.hello.service;
 
 import kr.re.kitri.hello.dao.ArticleDao;
+import kr.re.kitri.hello.dao.ArticleDaoJdbc;
 import kr.re.kitri.hello.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Connection;
 import java.util.List;
 
 /**
@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class BbsService {
     @Autowired
-    private ArticleDao dao;
+    private ArticleDao dao; //Interface이름으로 autowired를 건다.
 
     /**
      * 글쓰기
