@@ -10,16 +10,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class MemberService {
-    /**
-     * 글쓰기
-     *
-     * @param member
-     */
+
     @Autowired
     private MemberDao dao;
 
     public void registMember(Member member) {
-        dao.insertMember(memeber);
+        dao.insertMember(member);
     }
 
     public void updatePoint(int memberSeq) {

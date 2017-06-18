@@ -26,20 +26,14 @@ public class PostService {
      */
     public void registPost(Post post) {
         dao.insertPost(post);
-        memberDao.updatePoint(post.getMemberSeq());
+        memberDao.updatePoint(post.getPostSeq());
     }
 
-    /**
-     * 상세글 보기
-     * @param postSeq
-     * @return 글
-     */
     public Post viewPost(String postSeq) {
 
-        return dao.selectPostBySeq(PostSeq);
+        return dao.selectPostBySeq(postSeq);
     }
-    /**
-     * 전체글 보기*/
+
     public List<Post> getPosts() {
         return dao.selectAllPosts();}
 }

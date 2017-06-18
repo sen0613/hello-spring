@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.sql.DataSource;
 import java.sql.*;
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.*;
 
 /**
@@ -58,9 +59,9 @@ public class PostDaoJdbc implements PostDao {
     @Override
     public Post selectPostBySeq(String postSeq) {
         String query =
-                "SELECT post_seq, title, content, write_date, member_seq\n" +
-                        "FROM post\n" +
-                        "WHERE post_seq = ?";
+                "SELECT post_seq, title, content, write_date\n" +
+                        "FROM post, member\n" +
+                        "WHERE member.member_seq = post.member_seq";
 
         try {
             Connection conn = dataSource.getConnection();
@@ -70,10 +71,10 @@ public class PostDaoJdbc implements PostDao {
             rs.next();
 
             Post post = new Post();
-            post.setTitle(rs.getString(1));
-            post.setContent(rs.getString(2));
-            post.setWriteDate( Date.valueOf(rs.getDate(3)));
-            pstmt.setInt(rs.getInt(4);
+            post.setPostSeq(rs.getInt(1));
+            post.setTitle(rs.getString(2));
+            post.setContent(rs.getString(3));
+            post.setWriteDate(LocalDate.parse(String.valueOf(rs.getDate(4))));
 
 
             conn.close();
@@ -93,7 +94,9 @@ public class PostDaoJdbc implements PostDao {
     public List<Post> selectAllPosts() {
         String query =
                 "SELECT post_Seq, title, content, write_date, member_seq\n" +
-                        "FROM post";
+                        "FROM post, member\n" +
+                        "WHERE member.member_seq = post.member_seq\n" +
+                        "AND post_seq = ?";
 
         Connection conn = null;
         try {
@@ -109,7 +112,8 @@ public class PostDaoJdbc implements PostDao {
                 post.setPostSeq(rs.getInt(1));
                 post.setTitle(rs.getString(2));
                 post.setContent(rs.getString(3));
-                post.setWriteDate(rs.getDate(4));
+                post.setWriteDate(LocalDate.parse(rs.getString(4)));
+
 
 
                 list.add(post);
