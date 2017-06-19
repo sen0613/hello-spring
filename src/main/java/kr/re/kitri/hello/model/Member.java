@@ -1,6 +1,7 @@
 package kr.re.kitri.hello.model;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * Created by danawacomputer on 2017-06-16.
