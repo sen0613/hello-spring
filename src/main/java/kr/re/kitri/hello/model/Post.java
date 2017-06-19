@@ -10,15 +10,14 @@ public class Post {
     private String title;
     private String content;
     private LocalDate writeDate;
+    private int memberSeq;
 
-    public Post() {
-    }
-
-    public Post(int postSeq, String title, String content, LocalDate writeDate) {
+    public Post(int postSeq, String title, String content, LocalDate writeDate, int memberSeq) {
         this.postSeq = postSeq;
         this.title = title;
         this.content = content;
         this.writeDate = writeDate;
+        this.memberSeq = memberSeq;
     }
 
     public int getPostSeq() {
@@ -53,6 +52,14 @@ public class Post {
         this.writeDate = writeDate;
     }
 
+    public int getMemberSeq() {
+        return memberSeq;
+    }
+
+    public void setMemberSeq(int memberSeq) {
+        this.memberSeq = memberSeq;
+    }
+
     @Override
     public String toString() {
         return "Post{" +
@@ -60,6 +67,7 @@ public class Post {
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", writeDate=" + writeDate +
+                ", memberSeq=" + memberSeq +
                 '}';
     }
 }

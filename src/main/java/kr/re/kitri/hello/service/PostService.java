@@ -18,22 +18,22 @@ public class PostService {
     private MemberDao memberDao;
 
     @Autowired
-    private PostDao dao; //Interface이름으로 autowired를 건다.
+    private PostDao postDao; //Interface이름으로 autowired를 건다.
 
     /**
-     * 글을 등록하고, 멤버에게 포인트를 10점 준다.
+     * 글을 등록하고, 멤버에게 포인트 10점을 준다.
      * @param post
      */
     public void registPost(Post post) {
-        dao.insertPost(post);
-        memberDao.updatePoint(post.getPostSeq());
+        postDao.insertPost(post);
+        memberDao.updatePoint(post.getMemberSeq());
     }
 
     public Post viewPost(String postSeq) {
 
-        return dao.selectPostBySeq(postSeq);
+        return postDao.selectPostBySeq(postSeq);
     }
 
     public List<Post> getPosts() {
-        return dao.selectAllPosts();}
+        return postDao.selectAllPosts();}
 }
