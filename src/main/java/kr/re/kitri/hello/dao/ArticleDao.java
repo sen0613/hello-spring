@@ -11,5 +11,7 @@ public interface ArticleDao {
     void insertArticle(Article article);
     Article selectArticleById(String articleId);
     List<Article> selectAllArticles();
+    Article updateArticle(String articleId, String article);
+    Article deleteArticle(Article article);
 }
 

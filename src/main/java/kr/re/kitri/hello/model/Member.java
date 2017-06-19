@@ -6,24 +6,14 @@ import java.time.LocalDate;
  * Created by danawacomputer on 2017-06-16.
  */
 public class Member {
+
     private int memberSeq;
     private String userId;
     private String password;
     private String email;
     private int point;
-    private LocalDate joinDate;
+    private String joinDate;
 
-    public Member() {
-    }
-
-    public Member(int memberSeq, String userId, String password, String email, int point, LocalDate joinDate) {
-        this.memberSeq = memberSeq;
-        this.userId = userId;
-        this.password = password;
-        this.email = email;
-        this.point = point;
-        this.joinDate = joinDate;
-    }
 
     public int getMemberSeq() {
         return memberSeq;
@@ -65,11 +55,11 @@ public class Member {
         this.point = point;
     }
 
-    public LocalDate getJoinDate() {
+    public String getJoinDate() {
         return joinDate;
     }
 
-    public void setJoinDate(LocalDate joinDate) {
+    public void setJoinDate(String joinDate) {
         this.joinDate = joinDate;
     }
 

@@ -44,16 +44,42 @@ public class BbsController {
         return new ModelAndView("bbs/view_all")
                 .addObject("list", list);
     }
+
+    /**
+     * 글 전체보기 API버전
+     * /bbs/api.. 전체보기(API)
+     *
+     * 1. @ResponseBody
+     * 2. 리턴타입을 List<Article>을 리턴한다. 그러면 JSON으로 변환해 줄 것이다.
+     */
+    @RequestMapping("/api")
+    @ResponseBody
+    public List<Article> viewAllApi() {
+        //전체보기를 위한 데이터를 가져온다.
+        return service.getArticles();
+    }
+
     /**
      * 글 상세보기
+     *
      * @param articleId
      */
     @RequestMapping("/{articleId}")
+    @ResponseBody
     public ModelAndView viewDetail(@PathVariable String articleId)/*(@PathVariable("articleId") String articleId)*/ {
 
         Article article = service.viewArticle(articleId);
         return new ModelAndView("bbs/view_detail")
                 .addObject("article", article);
+    }
+
+    @RequestMapping("/{articleId}/api")
+    public Article viewDetailApi(@PathVariable String articleId) {
+
+        Article article = service.viewArticle(articleId);
+
+        return article;
+
     }
 
     /**
@@ -66,6 +92,7 @@ public class BbsController {
 
     /**
      * 실제 글쓰기
+     *
      * @param article
      */
     @PostMapping("/write")
@@ -80,6 +107,12 @@ public class BbsController {
         mav.addObject("article", article);
 
         return mav;
+    }
+
+    @PostMapping("/write/api")
+    public String doWriteApi(@RequestBody Article article) {
+        service.registArticle(article);
+        return "/bbs/view_all";
     }
 
     //    @RequestMapping("/write/do")

@@ -2,6 +2,7 @@ package kr.re.kitri.hello.service;
 
 import kr.re.kitri.hello.dao.ArticleDao;
 import kr.re.kitri.hello.dao.ArticleDaoJdbc;
+import kr.re.kitri.hello.model.Amigo;
 import kr.re.kitri.hello.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,22 +21,25 @@ public class BbsService {
 
     /**
      * 글쓰기
+     *
      * @param article
-     * */
+     */
     public void registArticle(Article article) {
         dao.insertArticle(article);
     }
 
     /**
      * 글 전체 보기
+     *
      * @return 전체 글
-     * */
+     */
     public List<Article> viewArticles() {
         return null;
     }
 
     /**
      * 상세글 보기
+     *
      * @param articleId 글번호
      * @return 글
      */
@@ -43,8 +47,19 @@ public class BbsService {
 
         return dao.selectArticleById(articleId);
     }
+
     /**
-     * 전체글 보기*/
+     * 전체글 보기
+     */
     public List<Article> getArticles() {
-    return dao.selectAllArticles();}
+        return dao.selectAllArticles();
+    }
+
+    public String modifyArticle(Article articleId, Article article) {
+        return dao.updateArticle(articleId, article);
+    }
+
+    public String removeArticle() {
+        return dao.deleteArticle(articleId);
+    }
 }

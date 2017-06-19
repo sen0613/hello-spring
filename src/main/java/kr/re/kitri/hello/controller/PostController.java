@@ -1,5 +1,6 @@
 package kr.re.kitri.hello.controller;
 
+import kr.re.kitri.hello.model.Member;
 import kr.re.kitri.hello.model.Post;
 import kr.re.kitri.hello.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
+
+/**
+ * Created by danawacomputer on 2017-06-16.
+ */
 
 /**
  * /post/write (GET) .. 글쓰기 화면
@@ -21,28 +28,45 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    /**
-     * 글쓰기 화면 보기
-     */
-    @GetMapping("/write")
+    @RequestMapping("")
+    public ModelAndView init() {
+
+        //전체보기를 위한 data
+        List<Member> memberList = postService.getMembers();
+
+        return new ModelAndView("post/init").addObject("memberList", memberList);
+    }
+
+    @RequestMapping("/view-all")
+    public ModelAndView viewAll() {
+
+        //전체보기를 위한 data
+        List<Member> memberList = postService.getMembers();
+
+        return new ModelAndView("post/view_all").addObject("memberList", memberList);
+    }
+
+    @GetMapping("view-all/write")
     public String write() {
         return "post/write";
     }
 
-    /**
-     * 실제 글쓰기
-     * @param post
-     */
-    @PostMapping("/write")
+    @PostMapping("view-all/write")
     public ModelAndView doWrite(Post post) {
-        System.out.println("post");
-
         postService.registPost(post);
+        return new ModelAndView("post/display_write").addObject("post", post);
+    }
 
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("post/do_write");
-        mav.addObject("post", post);
+    @GetMapping("/sign-up")
+    public String signup() {
+        return "post/sign_up";
+    }
 
-        return mav;
+    @PostMapping("/sign-up")
+    public ModelAndView doSignUp(Member member) {
+
+        postService.registMember(member);
+
+        return new ModelAndView("post/display_signup").addObject("member", member);
     }
 }

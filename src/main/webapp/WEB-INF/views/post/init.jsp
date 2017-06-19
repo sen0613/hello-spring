@@ -1,7 +1,7 @@
 <%--
   Created by IntelliJ IDEA.
   User: danawacomputer
-  Date: 2017-06-16
+  Date: 2017-06-19
   Time: 오후 3:03
   To change this template use File | Settings | File Templates.
 --%>
@@ -11,7 +11,6 @@
     <title>Title</title>
     <!-- Bootstrap core CSS -->
     <link href="/asset/css/bootstrap.css" rel="stylesheet">
-
 </head>
 <body>
 
@@ -22,33 +21,29 @@
                 <li role="presentation" class="active"><a href="#">Home</a></li>
             </ul>
         </nav>
-        <h3 class="text-muted">글 쓰기 화면입니다.</h3>
+        <h3 class="text-muted">시작 화면입니다.</h3>
     </div>
 
     <div class="jumbotron">
-        <form action="/post/view-all/write" method="post">
+        <form action="/post/view-all" method="post">
             <div class="input-group input-group-md border_setting">
-                <span class="input-group-addon">제목</span>
-                <input type="text" name="title" class="form-control" placeholder="title">
+                <span class="input-group-addon">ID</span>
+                <input type="text" name="userId" class="form-control" placeholder="User ID">
             </div>
             <div class="input-group input-group-md border_setting">
-                <span class="input-group-addon">내용</span>
-                <input type="text" name="content" class="form-control" placeholder="content">
+                <span class="input-group-addon">PassWord</span>
+                <input type="text" name="password" class="form-control" placeholder="PassWord">
             </div>
-            <div class="input-group input-group-md border_setting">
-                <span class="input-group-addon">사용자 번호</span>
-                <input type="text" name="memberSeq" class="form-control" placeholder="member#">
+            <div style="float: right;">
+                <p>
+                    <input type="submit" value="로그인" class="btn btn-sm btn-success">
+                    <a href="/post/sign-up" class="btn btn-sm btn-success">회원가입</a>
+                </p>
             </div>
-            <p><input type="submit" value="글 등록하기" class="btn btn-sm btn-success"></p>
         </form>
     </div>
-
-    <footer class="footer">
-        <p>&copy; 2017 Kitri, ds11.</p>
-    </footer>
 
 </div> <!-- /container -->
 
 </body>
 </html>
-

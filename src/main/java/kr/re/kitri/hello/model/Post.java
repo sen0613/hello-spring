@@ -6,20 +6,13 @@ import java.time.LocalDate;
  * Created by danawacomputer on 2017-06-16.
  */
 public class Post {
+
     private int postSeq;
     private String title;
     private String content;
-    private LocalDate writeDate;
+    private String writeDate;
+    private int memberSeq;
 
-    public Post() {
-    }
-
-    public Post(int postSeq, String title, String content, LocalDate writeDate) {
-        this.postSeq = postSeq;
-        this.title = title;
-        this.content = content;
-        this.writeDate = writeDate;
-    }
 
     public int getPostSeq() {
         return postSeq;
@@ -45,12 +38,20 @@ public class Post {
         this.content = content;
     }
 
-    public LocalDate getWriteDate() {
+    public String getWriteDate() {
         return writeDate;
     }
 
-    public void setWriteDate(LocalDate writeDate) {
+    public void setWriteDate(String writeDate) {
         this.writeDate = writeDate;
+    }
+
+    public int getMemberSeq() {
+        return memberSeq;
+    }
+
+    public void setMemberSeq(int memberSeq) {
+        this.memberSeq = memberSeq;
     }
 
     @Override
@@ -60,6 +61,7 @@ public class Post {
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", writeDate=" + writeDate +
+                ", memberSeq=" + memberSeq +
                 '}';
     }
 }
