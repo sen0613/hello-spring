@@ -9,6 +9,7 @@ public class Amigo {
     private String cp;
     private String email;
 
+
     public Amigo() {
     }
 

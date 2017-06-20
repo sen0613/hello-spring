@@ -2,7 +2,6 @@ package kr.re.kitri.hello.service;
 
 import kr.re.kitri.hello.dao.AmigoDao;
 import kr.re.kitri.hello.model.Amigo;
-import kr.re.kitri.hello.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -33,6 +32,7 @@ public class AmigoService {
         return null;
     }
 
+
     /**
      * 상세글 보기
      *
@@ -47,5 +47,13 @@ public class AmigoService {
 
     public List<Amigo> getAmigos() {
         return dao.selectAllAmigos();
+    }
+
+    public Amigo modifyAmigo(String amigoName, Amigo amigo) {
+        return dao.updateAmigo(amigoName, amigo);
+    }
+
+    public Amigo removeAmigo (Amigo amigo) {
+        return dao.deleteAmigo(amigo);
     }
 }

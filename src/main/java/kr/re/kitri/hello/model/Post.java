@@ -14,6 +14,7 @@ public class Post {
     private int memberSeq;
 
 
+
     public int getPostSeq() {
         return postSeq;
     }

@@ -11,6 +11,7 @@
     <title>Title</title>
 </head>
 <body>
+
 <h1>회원 가입이 완료되었습니다..</h1>
 <ul>
     <li>ID: ${member.userId}</li>
@@ -19,5 +20,6 @@
     <li>Point: 글을 등록할 때마다 10점씩 적립됩니다.</li>
 </ul>
 <a href="/post">처음 화면으로</a>
+
 </body>
 </html>

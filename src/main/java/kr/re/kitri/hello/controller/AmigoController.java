@@ -46,14 +46,14 @@ public class AmigoController {
      * 글 상세보기
      * @param amigoName
      */
-    /*@RequestMapping("/{amigoName}")
+    @RequestMapping("/{amigoName}")
     public ModelAndView viewDetail(@PathVariable("amigoName") String amigoName) {
 
         Amigo amigo = service.viewAmigo(amigoName);
         return new ModelAndView("amigo/amigo_view_detail")
                 .addObject("amigo", amigo);
 
-    }*/
+    }
 
     /**
      * 글쓰기 화면 보기

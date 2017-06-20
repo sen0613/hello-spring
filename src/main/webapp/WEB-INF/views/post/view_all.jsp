@@ -11,6 +11,7 @@
 <head>
     <title>Title</title>
 </head>
+
 <body>
 <a href="/post/view-all/write">글 등록하기</a>
 
@@ -25,4 +26,5 @@
     </ul>
 </c:forEach>
 </body>
+
 </html>

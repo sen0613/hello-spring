@@ -15,6 +15,7 @@ import java.util.List;
  * /api/bbs/{articleId} (PUT) .. 글 수정
  * /api/bbs/{articleId} (DELETE) .. 글 삭제
  */
+
 @RestController
 @RequestMapping("/api/bbs")
 public class ApiBbsController {
@@ -42,7 +43,7 @@ public class ApiBbsController {
     @PutMapping("/{articleId}/do_write")
     public void modify(@PathVariable String articleId, @RequestBody Article article) {
         service.modifyArticle(articleId, article);
-        return "/bbs/do_write";
+
 
 
     }
@@ -50,7 +51,7 @@ public class ApiBbsController {
     @DeleteMapping("/{articleId}/do_write")
     public void remove(@PathVariable Article article) {
         service.removeArticle(article);
-        return "/bbs/do_write";
+
 
     }
 }

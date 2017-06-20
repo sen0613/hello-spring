@@ -72,6 +72,21 @@ public class ArticleDaoSpringJdbc implements ArticleDao {
                 return article;
             }
 
+
+
         });
+    }
+
+
+    @Override
+    public Article updateArticle(String articleId, Article article){
+        return null;
+    }
+
+
+
+    @Override
+    public Article deleteArticle(Article article){
+        return null;
     }
 }

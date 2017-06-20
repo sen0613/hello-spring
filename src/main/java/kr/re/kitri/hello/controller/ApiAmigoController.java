@@ -25,6 +25,7 @@ public class ApiAmigoController {
         return service.getAmigos(); //TODO
     }
 
+
     @GetMapping("/{amigoName}")
     public Amigo viewDetail(@PathVariable String amigoName) {
         Amigo amigo = service.viewAmigo(amigoName);

@@ -17,5 +17,6 @@ public class MainController {
     @RequestMapping("/bs-sample")
     public String test() {
         return "bs_sample";}
+
 }
 

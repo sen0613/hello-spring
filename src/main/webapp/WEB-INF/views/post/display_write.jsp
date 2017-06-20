@@ -10,6 +10,7 @@
 <head>
     <title>Title</title>
 </head>
+
 <body>
 <h1>작성 글 출력 화면입니다.</h1>
 <ul>
@@ -18,5 +19,6 @@
     <li>${post.memberSeq}</li>
 </ul>
 <a href="/post/view-all">처음 화면으로</a>
+
 </body>
 </html>

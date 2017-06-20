@@ -30,5 +30,6 @@ public class PostDao {
                         "VALUES (?, ?, now(), ?);";
 
         jdbcTemplate.update(query, post.getTitle(), post.getContent(), post.getMemberSeq());
+
     }
 }

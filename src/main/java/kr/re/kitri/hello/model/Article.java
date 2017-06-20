@@ -18,6 +18,7 @@ public class Article {
         this.articleId = articleId;
     }
 
+
     public String getTitle() {
         return title;
     }

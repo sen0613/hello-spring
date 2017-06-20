@@ -58,8 +58,10 @@ public class ArticleDaoJdbc implements ArticleDao {
         try {
             conn = dataSource.getConnection();
 
+
             PreparedStatement pstmt = conn.prepareStatement(query);
             ResultSet rs = pstmt.executeQuery();
+
 
             List<Article> list = new ArrayList<>();
             Article article;
@@ -113,7 +115,7 @@ public class ArticleDaoJdbc implements ArticleDao {
         }
     }
 
-    public Article updateArticle(String articleId, String article){
+    public Article updateArticle(String articleId, Article article){
 
     return null;}
 

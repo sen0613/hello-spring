@@ -30,6 +30,7 @@ public class PostService {
         memberDao.updatePoint(post.getMemberSeq());
     }
 
+
     public void registMember(Member member) {
         memberDao.insertMember(member);
     }

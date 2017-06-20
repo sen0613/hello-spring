@@ -90,6 +90,7 @@ public class BbsController {
         return "bbs/write";
     }
 
+
     /**
      * 실제 글쓰기
      *

@@ -1,8 +1,6 @@
 package kr.re.kitri.hello.service;
 
 import kr.re.kitri.hello.dao.ArticleDao;
-import kr.re.kitri.hello.dao.ArticleDaoJdbc;
-import kr.re.kitri.hello.model.Amigo;
 import kr.re.kitri.hello.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +35,7 @@ public class BbsService {
         return null;
     }
 
+
     /**
      * 상세글 보기
      *
@@ -55,11 +54,11 @@ public class BbsService {
         return dao.selectAllArticles();
     }
 
-    public String modifyArticle(Article articleId, Article article) {
+    public Article modifyArticle(String articleId, Article article) {
         return dao.updateArticle(articleId, article);
     }
 
-    public String removeArticle() {
-        return dao.deleteArticle(articleId);
+    public Article removeArticle(Article article) {
+        return dao.deleteArticle(article);
     }
 }

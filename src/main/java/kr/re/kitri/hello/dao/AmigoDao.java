@@ -81,6 +81,7 @@ public class AmigoDao {
         }
     }
 
+
     /**
      * 글 상세보기
      *
@@ -104,7 +105,6 @@ public class AmigoDao {
             amigo.setCp(rs.getString(2));
             amigo.setEmail(rs.getString(3));
 
-
             conn.close();
             return amigo;
 
@@ -114,6 +114,12 @@ public class AmigoDao {
             return new Amigo();
         }
     }
+    public Amigo updateAmigo (String amigoName, Amigo amigo) {
+        return null;
+    }
+    public Amigo deleteAmigo (Amigo amigo){
+
+        return null;}
 }
 
 

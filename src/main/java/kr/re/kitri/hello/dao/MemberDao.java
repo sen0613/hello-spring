@@ -40,6 +40,7 @@ public class MemberDao {
                         "from member;";
 
         return jdbcTemplate.query(query, new RowMapper<Member>() {
+
             @Override
             public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Member member = new Member();

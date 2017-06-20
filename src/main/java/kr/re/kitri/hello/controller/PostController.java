@@ -28,6 +28,7 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+
     @RequestMapping("")
     public ModelAndView init() {
 
@@ -35,6 +36,7 @@ public class PostController {
         List<Member> memberList = postService.getMembers();
 
         return new ModelAndView("post/init").addObject("memberList", memberList);
+
     }
 
     @RequestMapping("/view-all")

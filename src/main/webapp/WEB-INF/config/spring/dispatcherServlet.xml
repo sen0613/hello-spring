@@ -11,7 +11,7 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <mvc:annotation-driven/>
-    <mvc:resources mapping="/client/**" location="client"/>
+    <mvc:resources mapping="/asset/**" location="/client/"/>
 
     <context:component-scan base-package="kr.re.kitri.hello"/>
 

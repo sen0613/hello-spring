@@ -8,10 +8,12 @@ import java.util.List;
  */
 public interface ArticleDao {
 
+
     void insertArticle(Article article);
     Article selectArticleById(String articleId);
     List<Article> selectAllArticles();
-    Article updateArticle(String articleId, String article);
+    Article updateArticle(String articleId, Article article);
     Article deleteArticle(Article article);
+
 }
 
